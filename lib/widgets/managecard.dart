@@ -11,6 +11,8 @@ class ManageCard extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    double vwwidth = MediaQuery.of(context).size.width;
+    vwwidth = vwwidth / 2.4;
     return Card(
       elevation: 0,
       color: Colors.white,
@@ -18,10 +20,10 @@ class ManageCard extends StatelessWidget implements PreferredSizeWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: SizedBox(
-        width: 190,
+        width: vwwidth,
         height: 120,
         child: Padding(
-          padding: const EdgeInsets.only(left: 12.0),
+          padding: const EdgeInsets.only(left: 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,

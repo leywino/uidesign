@@ -6,6 +6,7 @@ class AccountCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double vwwidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(top: 12.0),
       child: Row(
@@ -20,7 +21,7 @@ class AccountCard extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    width: 390,
+                    width: vwwidth / 1.06,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

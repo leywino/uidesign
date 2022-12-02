@@ -7,13 +7,14 @@ class TransactionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double vwwidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(top: 15.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            width: 380,
+            width: vwwidth / 1.05,
             child: Card(
               elevation: 0,
               color: Colors.white,

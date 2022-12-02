@@ -10,6 +10,25 @@ class OrderExpanded extends StatefulWidget {
 }
 
 class _OrderExpandedState extends State<OrderExpanded> {
+  final NormalPaymentProfile =
+      Text('Payments Overview', style: GoogleFonts.poppins(fontSize: 18));
+  final ExpandedPaymentProfile = Text(
+    'Payments Overview',
+    style: GoogleFonts.poppins(
+      fontSize: 18,
+      fontWeight: FontWeight.w600,
+      color: Colors.black,
+    ),
+  );
+
+  final ExpandedMoreArrow = Icon(
+    Icons.expand_more,
+    color: Colors.black,
+  );
+  final NormalMoreArrow = Icon(
+    Icons.chevron_right,
+    color: Colors.black,
+  );
   bool _customTileExpanded = false;
   @override
   Widget build(BuildContext context) {
@@ -50,19 +69,16 @@ class _OrderExpandedState extends State<OrderExpanded> {
           ),
         ),
         ExpansionTile(
-          title: Text(
-            'Payments Overview',
-            style: GoogleFonts.poppins(fontSize: 18),
-          ),
+          title: _customTileExpanded
+              ? ExpandedPaymentProfile
+              : NormalPaymentProfile,
           trailing:
               Wrap(crossAxisAlignment: WrapCrossAlignment.center, children: [
             Text(
               'Life Time',
               style: GoogleFonts.poppins(fontSize: 18, color: faqgrey2),
             ),
-            Icon(
-              _customTileExpanded ? Icons.expand_more : Icons.chevron_right,
-            )
+            _customTileExpanded ? ExpandedMoreArrow : NormalMoreArrow,
           ]),
           children: [
             Padding(
@@ -80,6 +96,7 @@ class _OrderExpandedState extends State<OrderExpanded> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 30.0, horizontal: 15),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'AMOUNT ON HOLD',
@@ -111,6 +128,7 @@ class _OrderExpandedState extends State<OrderExpanded> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 30.0, horizontal: 15),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'AMOUNT RECIEVED',

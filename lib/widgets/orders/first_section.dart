@@ -7,6 +7,7 @@ class ViewOrdFirst extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double vwwidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       child: Column(
@@ -111,9 +112,26 @@ class ViewOrdFirst extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        'x  ₹799                               ₹799',
-                        style: GoogleFonts.poppins(),
+                      child: SizedBox(
+                        width: vwwidth / 1.9,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'x  ₹799',
+                              style: GoogleFonts.poppins(),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  '₹799',
+                                  style: GoogleFonts.poppins(),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -209,6 +227,44 @@ class ViewOrdFirst extends StatelessWidget {
               ],
             ),
           ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Deepa',
+                    style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Text(
+                    '+91-7829000484',
+                    style: GoogleFonts.poppins(fontSize: 17),
+                  ),
+                ],
+              ),
+              Wrap(
+                spacing: 5,
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  const Icon(
+                    Icons.call,
+                    color: Color.fromARGB(255, 22, 92, 150),
+                    size: 35,
+                  ),
+                  const Icon(
+                    Icons.whatsapp,
+                    color: Colors.green,
+                    size: 35,
+                  )
+                ],
+              ),
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0, top: 10),
             child: Row(
@@ -286,47 +342,55 @@ class ViewOrdFirst extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Payment',
                       style: GoogleFonts.poppins(
                           fontSize: 18, fontWeight: FontWeight.w500),
                     ),
-                    Text(
-                      'Online',
-                      style: GoogleFonts.poppins(
-                        fontSize: 18,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          'Online',
+                          style: GoogleFonts.poppins(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 35,
-                      width: 60,
-                      child: Card(
-                        shape: const RoundedRectangleBorder(
-                          side: BorderSide(color: Colors.green),
-                          borderRadius: BorderRadius.all(Radius.circular(2)),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'PAID',
-                              style: GoogleFonts.poppins(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.green,
+                Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 35,
+                        width: 60,
+                        child: Card(
+                          shape: const RoundedRectangleBorder(
+                            side: BorderSide(color: Colors.green),
+                            borderRadius: BorderRadius.all(Radius.circular(2)),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'PAID',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.green,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
